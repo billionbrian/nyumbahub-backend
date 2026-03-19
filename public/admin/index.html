@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EasyHouse Admin — Add Listing</title>
+
+  <!-- Leaflet for map picker -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Add a House Listing</h1>
+
+    <form id="addHouseForm" class="form">
+      <label>Title
+        <input name="title" type="text" required />
+      </label>
+
+      <label>Description
+        <textarea name="description" rows="3"></textarea>
+      </label>
+
+      <label>Location (address or area)
+        <input name="location" type="text" placeholder="e.g. Kilimani, Nairobi" required />
+      </label>
+
+      <div class="row">
+        <label>Price (KES)
+          <input name="price" type="number" required />
+        </label>
+
+        <label>Bedrooms (size)
+          <input name="size" type="number" min="0" required />
+        </label>
+      </div>
+
+      <div class="row">
+        <label>Latitude
+          <input id="lat" name="lat" type="text" readonly />
+        </label>
+
+        <label>Longitude
+          <input id="lng" name="lng" type="text" readonly />
+        </label>
+      </div>
+
+      <div class="row">
+        <button type="button" id="geocodeBtn">Find coords from address</button>
+        <button type="submit">Add Listing</button>
+      </div>
+    </form>
+
+    <h2>Pick location on the map</h2>
+    <div id="adminMap" style="height:360px;"></div>
+
+    <div id="status" class="status"></div>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
